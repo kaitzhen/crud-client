@@ -15,7 +15,11 @@ const CampusView = (props) => {
         <h1>{campus.name}</h1>
         <p>{campus.address}</p>
         <p>{campus.description}</p>
+        <p>campus id: {campus.id}</p>
         <p>There are no students enrolled currently.</p>
+        <Link to={`/editcampus/${campus.id}`}>
+        <button>Edit Campus</button>
+      </Link>
       </div>
     )
   }
@@ -26,6 +30,7 @@ const CampusView = (props) => {
       <h1>{campus.name}</h1>
       <p>{campus.address}</p>
       <p>{campus.description}</p>
+      <p>campus id:{campus.id}</p>
 
       <p>Students Enrolled: {campus.students.length}</p>
       {campus.students.map( student => {
@@ -38,6 +43,9 @@ const CampusView = (props) => {
           </div>
         );
       })}
+      <Link to={`/editcampus/${campus.id}`}>
+        <button>Edit Campus</button>
+      </Link>
     </div>
   );
 };
