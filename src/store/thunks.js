@@ -33,6 +33,15 @@ export const deleteCampusThunk = campusId => async dispatch => {
   }
 };
 
+export const editCampusThunk = campus => async dispatch => {
+  try {
+    let updatedCampus = await axios.put(`/api/campus/${campus.id}`, campus);
+    dispatch(ac.editCampus(updatedCampus));
+  } catch(err) {
+    console.error(err);
+  }
+};
+
 //Single campus
 export const fetchCampusThunk = (id) => async (dispatch) => {
   // thunk creator would not an be async function 
