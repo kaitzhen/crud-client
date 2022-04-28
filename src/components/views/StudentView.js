@@ -3,6 +3,8 @@ StudentView.js
 It constructs a React component to display the single student view page.
 The component is to be included in StudentContainer.js
 ================================================== */
+import { Link } from "react-router-dom";
+
 const StudentView = (props) => {
   const { student } = props;
   console.log(student);
@@ -14,6 +16,9 @@ const StudentView = (props) => {
         <h3>{student.gpa}</h3>
         <img src= {student.imageUrl} alt="student" style={{width: '300px', height: '200px'}}></img>
         <h3>Not enrolled in any campus.</h3>
+        <Link to={`/editstudent/${student.id}`}>
+          <button>Edit Student</button>
+        </Link>
       </div>
     );
   }
@@ -28,6 +33,9 @@ const StudentView = (props) => {
       <h3>{student.email}</h3>
       <img src= {student.imageUrl} alt="student" style={{width: '300px', height: '200px'}}></img>
       <h3>{student.gpa}</h3>
+      <Link to={`/editstudent/${student.id}`}>
+        <button>Edit Student</button>
+      </Link>
     </div>
   );
 

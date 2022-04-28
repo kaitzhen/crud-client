@@ -18,8 +18,8 @@ const CampusView = (props) => {
         <p>campus id: {campus.id}</p>
         <p>There are no students enrolled currently.</p>
         <Link to={`/editcampus/${campus.id}`}>
-        <button>Edit Campus</button>
-      </Link>
+          <button>Edit Campus</button>
+        </Link>
       </div>
     )
   }

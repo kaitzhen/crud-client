@@ -37,6 +37,7 @@ class NewStudentContainer extends Component {
   handleSubmit = async event => {
     event.preventDefault();  // Prevent browser reload/refresh after submit.
 
+
     let student = {
         firstname: this.state.firstname,
         lastname: this.state.lastname,
