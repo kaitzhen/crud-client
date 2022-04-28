@@ -22,6 +22,7 @@ class EditStudentContainer extends Component {
         lastname: this.props.student.lastname, 
         email: this.props.student.email, 
         gpa: this.props.student.gpa, 
+        campusId: this.props.student.campusId,
         redirect: false, 
         redirectId: null
       };
@@ -50,9 +51,10 @@ class EditStudentContainer extends Component {
           firstname: this.state.firstname,
           lastname: this.state.lastname,
           email: this.state.email,
-          gpa: this.state.gpa
+          gpa: this.state.gpa,
+          campusId: this.state.campusId
       };
-      console.log(this.props.student.id);
+      
       
       // Update student in back-end database
       await this.props.editStudent(student,this.props.student.id);

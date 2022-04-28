@@ -41,7 +41,7 @@ const EditStudentView = (props) => {
   return (
     <div>
       <h1>Edit Student</h1>
-      <p>{student.firstname} {student.lastname} {student.id} </p>
+      
 
       <div className={classes.root}>
         <div className={classes.formContainer}>
@@ -68,6 +68,11 @@ const EditStudentView = (props) => {
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>GPA: </label>
             <input type="number" name="gpa" min="0.0" max="4.0" step="0.1" required defaultValue={student.gpa} onChange={(e) => handleChange(e)} />
+            <br/>
+            <br/>
+
+            <label style={{color:'#11153e', fontWeight: 'bold'}}>Campus ID: </label>
+            <input type="number" name="campusId" required defaultValue={student.campusId} onChange={(e) => handleChange(e)} />
             <br/>
             <br/>
 
