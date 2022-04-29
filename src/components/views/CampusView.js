@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 // Take in props data to construct the component
 const CampusView = (props) => {
-  const {campus} = props;
+  const {campus, unenroll} = props;
 
   if(!campus.students.length) {
     return (
@@ -39,7 +39,8 @@ const CampusView = (props) => {
           <div key={student.id}>
             <Link to={`/student/${student.id}`}>
               <h2>{name}</h2>
-            </Link>             
+            </Link>            
+            <button onClick={() => unenroll(student)}>Unenroll</button> 
           </div>
         );
       })}

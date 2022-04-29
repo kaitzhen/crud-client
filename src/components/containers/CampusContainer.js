@@ -6,15 +6,38 @@ It also contains Thunk.
 import Header from './Header';
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchCampusThunk } from "../../store/thunks";
+import { fetchCampusThunk, editStudentThunk } from "../../store/thunks";
 
 import { CampusView } from "../views";
 
 class CampusContainer extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      updated: false
+    }
+  }
+
   // Get the specific campus data from back-end database
   componentDidMount() {
     // Get campus ID from URL (API link)
     this.props.fetchCampus(this.props.match.params.id);
+  }
+
+  unenroll = async student => {
+    console.log("unenroll");
+    console.log(student.id);
+    let unenrolledStudent = {
+      campusId: null
+    }
+
+    await this.props.editStudent(unenrolledStudent,student.id);
+    this.props.fetchCampus(this.props.match.params.id);  //fetch campus students again to update
+
+    this.setState({
+      updated: true
+    });
   }
 
   // Render a Campus view by passing campus data as props to the component
@@ -22,7 +45,10 @@ class CampusContainer extends Component {
     return (
       <div>
         <Header />
-        <CampusView campus={this.props.campus} />
+        <CampusView 
+          campus={this.props.campus}
+          unenroll={this.unenroll}
+        />
       </div>
     );
   }
@@ -34,6 +60,7 @@ class CampusContainer extends Component {
 const mapDispatch = (dispatch) => {
   return {
     fetchCampus: (id) => dispatch(fetchCampusThunk(id)),
+    editStudent: (student,id) => dispatch(editStudentThunk(student,id))
   };
 };
 // 2. Passing Redux State as props to the "connect" function
