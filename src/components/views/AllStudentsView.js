@@ -6,7 +6,7 @@ The component is to be included in AllStudentsContainer.js
 import { Link } from "react-router-dom";
 
 const AllStudentsView = (props) => {
-  const {students, deleteStudent} = props;
+  const {students} = props;
 
   if (!students.length) {
     return (
@@ -31,7 +31,6 @@ const AllStudentsView = (props) => {
               <Link to={`/student/${student.id}`}>
                 <h2>{name}</h2>
               </Link>
-              <button onClick={() => deleteStudent(student.id)}>Delete</button>
               <hr/>
             </div>
           );

@@ -62,9 +62,15 @@ const EditCampusView = (props) => {
             <br/>
 
             <label style={{color:'#11153e', fontWeight: 'bold'}}>Description: </label>
-            <input type="text" name="description" required defaultValue={campus.description} onChange={(e) => handleChange(e)} />
-            <br/>
-            <br/>
+            <textarea
+                name="description"
+                style={{ margin: 8, width:'300px', height:'75px'}}
+                defaultValue={campus.description}
+                required
+                fullWidth
+                margin="normal" 
+                onChange={(e) => handleChange(e)}>
+            </textarea>
 
             <Button variant="contained" color="primary" type="submit">
               Submit

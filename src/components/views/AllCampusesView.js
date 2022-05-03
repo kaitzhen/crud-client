@@ -7,7 +7,6 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const AllCampusesView = (props) => {
-  const {deleteCampus} = props;
 
   if (!props.allCampuses.length) {
     return <div>There are no campuses.</div>;
@@ -23,10 +22,11 @@ const AllCampusesView = (props) => {
           <Link to={`/campus/${campus.id}`}>
             <h2>{campus.name}</h2>
           </Link>
+          <img src= {campus.imageUrl} alt="campus" style={{width: '100px', height: '100px', borderRadius: 50}}></img>
           <h4>campus id: {campus.id}</h4>
-          <p>{campus.address}</p>
-          <p>{campus.description}</p>
-          <button onClick={() => deleteCampus(campus.id)}>Delete Campus</button>
+          {/* <p>{campus.address}</p>
+          <p>{campus.description}</p> */}
+          
           <hr/>
         </div>
       ))}
