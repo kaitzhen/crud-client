@@ -6,7 +6,7 @@ The component is to be included in StudentContainer.js
 import { Link } from "react-router-dom";
 
 const StudentView = (props) => {
-  const { student } = props;
+  const { student, deleteStudent } = props;
   console.log(student);
   if(!student.campus) {
     return (
@@ -38,6 +38,7 @@ const StudentView = (props) => {
       <Link to={`/editstudent/${student.id}`}>
         <button>Edit Student</button>
       </Link>
+      <button onClick={() => deleteStudent(student.id)}>Delete</button>
     </div>
   );
 

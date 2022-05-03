@@ -9,8 +9,7 @@ import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 
 import { 
-  fetchAllStudentsThunk,
-  deleteStudentThunk
+  fetchAllStudentsThunk
 } from '../../store/thunks';
 
 import AllStudentsView from '../views/AllStudentsView';
@@ -27,8 +26,7 @@ class AllStudentsContainer extends Component {
       <div>
         <Header />
         <AllStudentsView 
-          students={this.props.allStudents}
-          deleteStudent={this.props.deleteStudent}   
+          students={this.props.allStudents}   
         />
       </div>
     )
@@ -41,7 +39,6 @@ class AllStudentsContainer extends Component {
 const mapDispatch = (dispatch) => {
   return {
     fetchAllStudents: () => dispatch(fetchAllStudentsThunk()),
-    deleteStudent: (studentId) => dispatch(deleteStudentThunk(studentId)),
   };
 };
 // 2. Passing Redux State as props to the "connect" function
