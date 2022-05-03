@@ -6,7 +6,7 @@ It also contains Thunk.
 import Header from './Header';
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchCampusThunk, editStudentThunk } from "../../store/thunks";
+import { fetchCampusThunk, editStudentThunk,deleteCampusThunk } from "../../store/thunks";
 
 import { CampusView } from "../views";
 
@@ -48,6 +48,7 @@ class CampusContainer extends Component {
         <CampusView 
           campus={this.props.campus}
           unenroll={this.unenroll}
+          deleteCampus={this.props.deleteCampus}
         />
       </div>
     );
@@ -60,7 +61,8 @@ class CampusContainer extends Component {
 const mapDispatch = (dispatch) => {
   return {
     fetchCampus: (id) => dispatch(fetchCampusThunk(id)),
-    editStudent: (student,id) => dispatch(editStudentThunk(student,id))
+    editStudent: (student,id) => dispatch(editStudentThunk(student,id)),
+    deleteCampus: (campusId) => dispatch(deleteCampusThunk(campusId)),
   };
 };
 // 2. Passing Redux State as props to the "connect" function
