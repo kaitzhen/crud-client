@@ -55,19 +55,19 @@ const Header = () => {
           </Typography>
 
           <Link className={classes.links} to={'/'} >
-            <Button variant="contained" style={{marginRight: '10px',backgroundColor:'#C8ECB2', borderRadius:10}}>
+            <Button variant="contained" style={{marginRight: '10px',backgroundColor:'#585858', borderRadius:10, color:'white'}}>
               Home
             </Button>
           </Link>
 
           <Link className={classes.links} to={'/campuses'} >
-            <Button variant="contained" style={{marginRight: '10px',backgroundColor:'#C8ECB2',borderRadius:10}}>
+            <Button variant="contained" style={{marginRight: '10px',backgroundColor:'#585858',borderRadius:10,color:'white'}}>
               All Campuses
             </Button>
           </Link>
 
           <Link className={classes.links} to={'/students'} >
-            <Button variant="contained" style={{backgroundColor:'#C8ECB2',borderRadius:10}}>
+            <Button variant="contained" style={{backgroundColor:'#585858',borderRadius:10,color:'white'}}>
               All Students
             </Button>
           </Link>
