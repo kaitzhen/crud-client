@@ -10,10 +10,10 @@ import { makeStyles } from '@material-ui/core/styles';
 // Create styling for the input form
 const useStyles = makeStyles( () => ({
   formContainer:{  
-    width: '500px',
-    backgroundColor: '#f0f0f5',
+    width: '600px',
+    backgroundColor: '#D8D8D8',
     borderRadius: '5px',
-    margin: 'auto',
+    margin: 'auto'
   },
   title: {
     flexGrow: 1,
@@ -25,7 +25,7 @@ const useStyles = makeStyles( () => ({
     shadows: ['none'],
   },
   formTitle:{
-    backgroundColor:'#c5c8d6',
+    backgroundColor:'white',
     marginBottom: '15px',
     textAlign: 'center',
     borderRadius: '5px 5px 0px 0px',
@@ -40,18 +40,17 @@ const EditCampusView = (props) => {
   // Render a New Campus view with an input form
   return (
     <div>
-      <h1>Edit Campus</h1>
-      <p>{campus.name}</p>
+      <h1 style={{margin:'20px', color:'white'}}>Edit Campus</h1>
 
       <div className={classes.root}>
         <div className={classes.formContainer}>
           <div className={classes.formTitle}>
-            <Typography style={{fontWeight: 'bold', fontFamily: 'Courier, sans-serif', fontSize: '20px', color: '#11153e'}}>
-              Edit Campus
+            <Typography style={{fontWeight: 'bold', padding:'10px',fontSize: '20px'}}>
+            {campus.name}
             </Typography>
           </div>
           <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
-            <label style= {{color:'#11153e', fontWeight: 'bold'}}>Name: </label>
+            <label style= {{ fontWeight: 'bold'}}>Name: </label>
             <input type="text" name="name" required defaultValue={campus.name} onChange ={(e) => handleChange(e)} />
             <br/>
             <br/>
@@ -71,8 +70,8 @@ const EditCampusView = (props) => {
                 margin="normal" 
                 onChange={(e) => handleChange(e)}>
             </textarea>
-
-            <Button variant="contained" color="primary" type="submit">
+            <br/>
+            <Button style={{backgroundColor:'#585858',borderRadius:10,color:'white'}} type="submit">
               Submit
             </Button>
             <br/>

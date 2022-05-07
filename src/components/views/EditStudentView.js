@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles( () => ({
   formContainer:{  
     width: '500px',
-    backgroundColor: '#f0f0f5',
+    backgroundColor: '#D8D8D8',
     borderRadius: '5px',
     margin: 'auto',
   },
@@ -25,7 +25,7 @@ const useStyles = makeStyles( () => ({
     shadows: ['none'],
   },
   formTitle:{
-    backgroundColor:'#c5c8d6',
+    backgroundColor:'white',
     marginBottom: '15px',
     textAlign: 'center',
     borderRadius: '5px 5px 0px 0px',
@@ -40,14 +40,14 @@ const EditStudentView = (props) => {
   // Render a edit student view with an input form
   return (
     <div>
-      <h1>Edit Student</h1>
+      <h1 style={{margin:'20px', color:'white'}}>Edit Student</h1>
       
 
       <div className={classes.root}>
         <div className={classes.formContainer}>
           <div className={classes.formTitle}>
-            <Typography style={{fontWeight: 'bold', fontFamily: 'Courier, sans-serif', fontSize: '20px', color: '#11153e'}}>
-              Edit Student
+            <Typography style={{fontWeight: 'bold', padding:'10px', fontSize: '20px'}}>
+              {student.firstname + " " + student.lastname}
             </Typography>
           </div>
           <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
@@ -76,7 +76,7 @@ const EditStudentView = (props) => {
             <br/>
             <br/>
 
-            <Button variant="contained" color="primary" type="submit">
+            <Button style={{backgroundColor:'#585858',borderRadius:10,color:'white'}} type="submit">
               Submit
             </Button>
             <br/>
