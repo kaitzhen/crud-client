@@ -18,6 +18,7 @@ class EnrollStudentContainer extends Component {
     this.state = {
       firstname: "", 
       lastname: "", 
+      imageUrl: '',
       email: "",
       gpa: 0.0,
       campusId: this.props.match.params.id, 
@@ -45,15 +46,25 @@ class EnrollStudentContainer extends Component {
   // Take action after user click the submit button
   handleSubmit = async event => {
     event.preventDefault();  // Prevent browser reload/refresh after submit.
-
-
-    let student = {
+    let student;
+    if(this.state.imageUrl === '') {
+      student = {
         firstname: this.state.firstname,
         lastname: this.state.lastname,
         email: this.state.email,
         gpa: this.state.gpa,
         campusId: this.state.campusId
-    };
+      };
+    } else {
+      student = {
+        firstname: this.state.firstname,
+        lastname: this.state.lastname,
+        imageUrl: this.state.imageUrl,
+        email: this.state.email,
+        gpa: this.state.gpa,
+        campusId: this.state.campusId
+      };
+    }
     
     // Add new student in back-end database
     await this.props.addStudent(student);
@@ -62,6 +73,7 @@ class EnrollStudentContainer extends Component {
     this.setState({
       firstname: "", 
       lastname: "", 
+      imageUrl: '',
       email: "",
       gpa: 0.0,
       campusId: null, 
