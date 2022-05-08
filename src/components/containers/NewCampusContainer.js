@@ -17,7 +17,6 @@ class NewCampusContainer extends Component {
     super(props);
     this.state = {
       name: "", 
-      imageUrl: '',
       address: "", 
       description: "", 
       redirect: false, 
@@ -38,7 +37,6 @@ class NewCampusContainer extends Component {
 
     let campus = {
         name: this.state.name,
-        imageUrl: this.state.imageUrl,
         address: this.state.address,
         description: this.state.description
     };
@@ -49,7 +47,6 @@ class NewCampusContainer extends Component {
     // Update state, and trigger redirect to show the new campus
     this.setState({
       name: "", 
-      imageUrl: "",
       address: "", 
       description:"", 
       redirect: true, 
