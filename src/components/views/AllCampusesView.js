@@ -15,24 +15,24 @@ const AllCampusesView = (props) => {
   // Render All Campuses view 
   return (
     <div>
-      <h1>All Campuses</h1>
+      <h1 style={{margin:'20px', color:'white'}}>All Campuses</h1>
 
       {props.allCampuses.map((campus) => (
-        <div key={campus.id}>
+        <div key={campus.id} 
+        style={{backgroundColor:'white', margin:'auto', marginBottom:'30px',
+        borderRadius:5, width:'50%', padding:'20px'}}>
           <Link to={`/campus/${campus.id}`}>
-            <h2>{campus.name}</h2>
+            <h3 style={{color:'black'}}>{campus.name}</h3>
           </Link>
-          <img src= {campus.imageUrl} alt="campus" style={{width: '100px', height: '100px', borderRadius: 50}}></img>
-          <h4>campus id: {campus.id}</h4>
-          {/* <p>{campus.address}</p>
-          <p>{campus.description}</p> */}
-          
+          <p>Campus ID: {campus.id}</p>
+          <img src= {campus.imageUrl} alt="campus" style={{width: '300px', height: '200px'}}></img>
+
           <hr/>
         </div>
       ))}
       <br/>
       <Link to={`/newcampus`}>
-        <button>Add New Campus</button>
+        <button style={{marginBottom:'15px', padding:'10px',backgroundColor:'#585858',borderRadius:10,color:'white'}}>Add New Campus</button>
       </Link>
     </div>
   );
