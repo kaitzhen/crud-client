@@ -19,6 +19,7 @@ class NewStudentContainer extends Component {
       firstname: "", 
       lastname: "", 
       email: "",
+      imageUrl: "",
       gpa: 0.0,
       campusId: null, 
       redirect: false, 
@@ -36,15 +37,28 @@ class NewStudentContainer extends Component {
   // Take action after user click the submit button
   handleSubmit = async event => {
     event.preventDefault();  // Prevent browser reload/refresh after submit.
-
-
-    let student = {
+    let student;
+    if(this.state.imageUrl === '') {   //if image field blank --> use default
+      console.log('no image provided');
+      student = {
         firstname: this.state.firstname,
         lastname: this.state.lastname,
         email: this.state.email,
         gpa: this.state.gpa,
         campusId: this.state.campusId
-    };
+      }
+    } else {   //if imageurl is filled
+      student = {
+        firstname: this.state.firstname,
+        lastname: this.state.lastname,
+        email: this.state.email,
+        imageUrl: this.state.imageUrl,
+        gpa: this.state.gpa,
+        campusId: this.state.campusId
+      };
+
+    }
+
     
     // Add new student in back-end database
     let newStudent = await this.props.addStudent(student);
@@ -54,6 +68,7 @@ class NewStudentContainer extends Component {
       firstname: "", 
       lastname: "", 
       email: "",
+      imageUrl: "",
       gpa: 0.0,
       campusId: null, 
       redirect: true, 
