@@ -19,6 +19,7 @@ class EditCampusContainer extends Component {
       super(props);
       this.state = {
         name: this.props.campus.name, 
+        imageUrl: this.props.campus.imageUrl,
         address: this.props.campus.address, 
         description: this.props.campus.description, 
         redirect: false, 
@@ -47,6 +48,7 @@ class EditCampusContainer extends Component {
   
       let campus = {
           name: this.state.name,
+          imageUrl: this.state.imageUrl,
           address: this.state.address,
           description: this.state.description
       };
