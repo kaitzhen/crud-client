@@ -9,7 +9,13 @@ import { Link } from "react-router-dom";
 const AllCampusesView = (props) => {
 
   if (!props.allCampuses.length) {
-    return <div>There are no campuses.</div>;
+    return (
+    <div>
+      <h2>There are no campuses.</h2>
+      <Link to={`/newcampus`}>
+        <button style={{marginBottom:'15px', padding:'10px',backgroundColor:'#585858',borderRadius:10,color:'white'}}>Add New Campus</button>
+      </Link>
+    </div>);
   }
 
   // Render All Campuses view 

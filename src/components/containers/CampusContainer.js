@@ -6,6 +6,7 @@ It also contains Thunk.
 import Header from './Header';
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Redirect } from 'react-router-dom';
 import { fetchCampusThunk, editStudentThunk,deleteCampusThunk } from "../../store/thunks";
 
 import { CampusView } from "../views";
@@ -15,8 +16,10 @@ class CampusContainer extends Component {
   constructor() {
     super();
     this.state = {
-      updated: false
+      updated: false,
+      deleted: false
     }
+    
   }
 
   // Get the specific campus data from back-end database
@@ -26,8 +29,7 @@ class CampusContainer extends Component {
   }
 
   unenroll = async student => {
-    console.log("unenroll");
-    console.log(student.id);
+
     let unenrolledStudent = {
       campusId: null
     }
@@ -40,15 +42,34 @@ class CampusContainer extends Component {
     });
   }
 
+  remove = async campusID => {
+    console.log(campusID);
+    await this.props.deleteCampus(campusID);
+    this.setState({
+      
+      deleted: true, 
+      
+    });
+  }
+
+  componentWillUnmount() {
+    this.setState({deleted: false});
+  }
+
   // Render a Campus view by passing campus data as props to the component
   render() {
+    if(this.state.deleted) {
+      return (<Redirect to={`/campuses`}/>)
+    }
     return (
+      
       <div>
         <Header />
         <CampusView 
           campus={this.props.campus}
           unenroll={this.unenroll}
-          deleteCampus={this.props.deleteCampus}
+          
+          remove={this.remove}
         />
       </div>
     );

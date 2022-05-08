@@ -6,7 +6,7 @@ The component is to be included in StudentContainer.js
 import { Link } from "react-router-dom";
 
 const StudentView = (props) => {
-  const { student, deleteStudent } = props;
+  const { student, remove } = props;
   console.log(student);
   if(!student.campus) {
     return (
@@ -29,7 +29,7 @@ const StudentView = (props) => {
             <button style={{margin:'15px', padding:'10px',backgroundColor:'#D0D0D0',borderRadius:10,color:'black'}}>
               Edit Student Information</button>
           </Link>
-          <button style={{marginBottom:'15px', padding:'10px',backgroundColor:'#585858',borderRadius:10,color:'white'}} onClick={() => deleteStudent(student.id)}>Delete Student</button> 
+          <button style={{marginBottom:'15px', padding:'10px',backgroundColor:'#585858',borderRadius:10,color:'white'}} onClick={() => remove(student.id)}>Delete Student</button> 
       </div>
       
     </div>
@@ -63,7 +63,7 @@ const StudentView = (props) => {
             <button style={{margin:'15px', padding:'10px',backgroundColor:'#D0D0D0',borderRadius:10,color:'black'}}>
               Edit Student Information</button>
           </Link>
-          <button style={{marginBottom:'15px', padding:'10px',backgroundColor:'#585858',borderRadius:10,color:'white'}} onClick={() => deleteStudent(student.id)}>Delete Student</button> 
+          <button style={{marginBottom:'15px', padding:'10px',backgroundColor:'#585858',borderRadius:10,color:'white'}} onClick={() => remove(student.id)} >Delete Student</button> 
       </div>
       
     </div>
