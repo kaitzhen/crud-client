@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 // Take in props data to construct the component
 const CampusView = (props) => {
-  const {campus, unenroll, deleteCampus} = props;
+  const {campus, unenroll, remove} = props;
 
   if(!campus.students.length) {
     return (
@@ -23,7 +23,7 @@ const CampusView = (props) => {
             <Link to={`/editcampus/${campus.id}`}>
               <button style={{margin:'15px', padding:'10px',backgroundColor:'#D0D0D0',borderRadius:10,color:'black'}}>Edit Campus Information</button>
             </Link>
-            <button onClick={() => deleteCampus(campus.id)}
+            <button onClick={() => remove(campus.id)}
             style={{marginBottom:'15px', padding:'10px',backgroundColor:'#585858',borderRadius:10,color:'white'}}
             >Delete Campus</button>
             <p style={{fontWeight:'500'}}>There are no students enrolled currently.</p>
@@ -48,7 +48,7 @@ const CampusView = (props) => {
           <Link to={`/editcampus/${campus.id}`}>
             <button style={{margin:'15px', padding:'10px',backgroundColor:'#D0D0D0',borderRadius:10,color:'black'}}>Edit Campus Information</button>
           </Link>
-          <button onClick={() => deleteCampus(campus.id)}
+          <button onClick={() => remove(campus.id)} 
           style={{marginBottom:'15px', padding:'10px',backgroundColor:'#585858',borderRadius:10,color:'white'}}
           >Delete Campus</button>
           <h3 style={{margin:'5px'}}>Total Students: {campus.students.length}</h3>

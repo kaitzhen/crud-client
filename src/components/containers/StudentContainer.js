@@ -6,23 +6,50 @@ It also contains Thunk.
 import Header from './Header';
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Redirect } from 'react-router-dom';
 import { fetchStudentThunk, deleteStudentThunk } from "../../store/thunks";
 import { StudentView } from "../views";
 
 class StudentContainer extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      deleted: false
+    }
+    
+  }
+
   // Get student data from back-end database
   componentDidMount() {
     //getting student ID from url
     this.props.fetchStudent(this.props.match.params.id);
   }
 
+  remove = async studentID => {
+    console.log(studentID);
+    await this.props.deleteStudent(studentID);
+    this.setState({
+      
+      deleted: true, 
+      
+    });
+  }
+
+  componentWillUnmount() {
+    this.setState({deleted: false});
+  }
+
   // Render Student view by passing student data as props to the component
   render() {
+    if(this.state.deleted) {
+      return (<Redirect to={`/students`}/>)
+    }
     return (
       <div>
         <Header />
         <StudentView student={this.props.student}
-        deleteStudent={this.props.deleteStudent}  />
+        remove={this.remove} />
       </div>
     );
   }
